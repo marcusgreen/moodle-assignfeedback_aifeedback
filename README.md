@@ -4,13 +4,18 @@ AI Feedback Assistant is a teacher-side helper for assignment grading.
 
 It adds a `Generate AI guidance` action on the grading screen and returns draft marker guidance based on the assignment brief and submitted work. The teacher reviews and rewrites this guidance before using it.
 
+![Example of AI feedback guidance on the grading screen](docs/images/preview.webp)
+
+
+
+
 ## Quick Start
 
 - Requires Moodle `5.1+`.
 - Install to `mod/assign/feedback/aifeedback`.
 - Complete the plugin upgrade from `Site administration > Notifications`.
 - Configure at least one Moodle AI provider that supports text generation.
-- Setup guide: [AI provider setup](AI_PROVIDER_SETUP.md).
+- Setup guide: [AI provider setup](docs/AI_PROVIDER_SETUP.md).
 
 ## Scope and Accountability
 
