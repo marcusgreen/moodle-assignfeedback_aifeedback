@@ -24,8 +24,6 @@
 
 namespace assignfeedback_aifeedback\task;
 
-defined('MOODLE_INTERNAL') || die();
-
 use assignfeedback_aifeedback\local\queue_processor;
 
 /**

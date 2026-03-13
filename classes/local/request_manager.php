@@ -24,8 +24,6 @@
 
 namespace assignfeedback_aifeedback\local;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Creates queue records and delegates processing.
  */

@@ -39,7 +39,7 @@ function assignfeedback_aifeedback_build_review_text(array $result): string {
     $sections = [];
     $structured = $result['structuredfeedback'] ?? null;
     if (is_array($structured)) {
-        $normaliselist = function($items): array {
+        $normaliselist = function ($items): array {
             if (!is_array($items)) {
                 return [];
             }
