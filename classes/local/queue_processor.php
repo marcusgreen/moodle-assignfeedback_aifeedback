@@ -24,8 +24,6 @@
 
 namespace assignfeedback_aifeedback\local;
 
-defined('MOODLE_INTERNAL') || die();
-
 use assignfeedback_aifeedback\task\process_queue_request;
 use core\task\manager as task_manager;
 
@@ -48,6 +46,7 @@ class queue_processor {
      * Enqueue background processing for one queue record.
      *
      * @param int $requestid Queue request ID.
+     * @param int $delayseconds Seconds to delay before the task runs.
      * @return void
      */
     public static function queue_request_processing(int $requestid, int $delayseconds = 0): void {

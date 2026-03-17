@@ -113,7 +113,12 @@ class request_payload_resolver {
         }
 
         $payload['submission']['onlinetext'] = self::collect_online_text($assignment, $submission);
-        $payload['submission']['files'] = self::collect_supported_files($assignment, $submission, (int) $request->foruserid, $issues);
+        $payload['submission']['files'] = self::collect_supported_files(
+            $assignment,
+            $submission,
+            (int) $request->foruserid,
+            $issues
+        );
         $payload['submission']['combinedtext'] = self::build_combined_submission_text($payload['submission']);
 
         if ($payload['submission']['combinedtext'] === '') {
@@ -209,7 +214,12 @@ class request_payload_resolver {
      * @param array $issues Collected issues list (by reference).
      * @return array
      */
-    private static function collect_supported_files(\assign $assignment, \stdClass $submission, int $userid, array &$issues): array {
+    private static function collect_supported_files(
+        \assign $assignment,
+        \stdClass $submission,
+        int $userid,
+        array &$issues
+    ): array {
         $plugin = $assignment->get_submission_plugin_by_type('file');
         if (!$plugin || !$plugin->is_enabled() || $plugin->is_empty($submission)) {
             return [];

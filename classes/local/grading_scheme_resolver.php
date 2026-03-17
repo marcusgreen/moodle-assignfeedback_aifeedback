@@ -24,8 +24,6 @@
 
 namespace assignfeedback_aifeedback\local;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Resolves the assignment grading scheme into an AI-friendly structure.
  */
@@ -53,7 +51,8 @@ class grading_scheme_resolver {
                 'type' => self::TYPE_UNKNOWN,
                 'isgradable' => false,
                 'description' => 'Grading scheme could not be resolved from the assignment settings.',
-                'aiprompt' => 'No grade scheme is available. Set suggested_grade to "No advisory grade available (grading scheme unavailable)".',
+                'aiprompt' => 'No grade scheme is available. Set suggested_grade to ' .
+                    '"No advisory grade available (grading scheme unavailable)".',
                 'validoptions' => [],
                 'min' => null,
                 'max' => null,
@@ -106,7 +105,8 @@ class grading_scheme_resolver {
                     'type' => self::TYPE_UNKNOWN,
                     'isgradable' => false,
                     'description' => 'Scale grading is configured but no valid scale items were found.',
-                    'aiprompt' => 'Scale options are unavailable. Set suggested_grade to "No advisory grade available (scale options unavailable)".',
+                    'aiprompt' => 'Scale options are unavailable. Set suggested_grade to ' .
+                        '"No advisory grade available (scale options unavailable)".',
                     'validoptions' => [],
                     'min' => null,
                     'max' => null,
@@ -120,7 +120,8 @@ class grading_scheme_resolver {
                 'type' => self::TYPE_SCALE,
                 'isgradable' => true,
                 'description' => 'Scale with valid options (lowest to highest): ' . $optionslist . '.',
-                'aiprompt' => 'Valid scale options are: ' . $optionslist . '. Suggest one option exactly as written, with no invented variants.',
+                'aiprompt' => 'Valid scale options are: ' . $optionslist .
+                    '. Suggest one option exactly as written, with no invented variants.',
                 'validoptions' => $options,
                 'min' => 1,
                 'max' => count($options),
@@ -133,7 +134,8 @@ class grading_scheme_resolver {
                 'type' => self::TYPE_NOGRADE,
                 'isgradable' => false,
                 'description' => 'No numeric or scale grading scheme is configured for this assignment.',
-                'aiprompt' => 'No grade scheme is configured. Set suggested_grade to "No advisory grade available (no grade scheme configured)".',
+                'aiprompt' => 'No grade scheme is configured. Set suggested_grade to ' .
+                    '"No advisory grade available (no grade scheme configured)".',
                 'validoptions' => [],
                 'min' => null,
                 'max' => null,
@@ -145,7 +147,8 @@ class grading_scheme_resolver {
             'type' => self::TYPE_UNKNOWN,
             'isgradable' => false,
             'description' => 'Grading scheme type is unsupported for AI suggestion.',
-            'aiprompt' => 'Grading scheme is unsupported. Set suggested_grade to "No advisory grade available (unsupported grading scheme)".',
+            'aiprompt' => 'Grading scheme is unsupported. Set suggested_grade to ' .
+                '"No advisory grade available (unsupported grading scheme)".',
             'validoptions' => [],
             'min' => null,
             'max' => null,
